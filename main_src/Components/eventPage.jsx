@@ -9,7 +9,7 @@ import { withRouter } from 'react-router';
 import { Switch, Route, browserHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { graphql, compose } from 'react-apollo';
-import { GoogleApiWrapper } from 'google-maps-react';
+import { GoogleApiWrapper, google } from 'google-maps-react';
 import gql from 'graphql-tag';
 import FlatButton from 'material-ui/FlatButton';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
@@ -57,7 +57,6 @@ class EventPage extends React.Component {
             id: this.props.currentUser.id,
             lastEvent: this.state.event.id
           }
-        }).then(result => {
         })
       }
     );
@@ -81,12 +80,11 @@ class EventPage extends React.Component {
   }
 
   render() {
-    console.log('event props', this.props)
-    if (this.props.guestQuery) {
-      console.log('we here')
+    if (this.props.guestsQuery) {
+
       if ((this.props.guestsQuery.error || this.props.guestsQuery.loading) && !this.props.guestsQuery.event) {
-        return 
-        (<div style={{"textAlign": "center", "marginTop": "225px"}}>
+        return (
+          <div style={{"textAlign": "center", "marginTop": "225px"}}>
           <Loader
            type="Puff"
            color="#00BFFF"
@@ -95,16 +93,17 @@ class EventPage extends React.Component {
            alignItems="center"
            justifyContent='center'
            />
-         </div>)
+         </div>
+         )
       }
-console.log('before currently editing')
+
       return this.state.currentlyEditing ?
         (
           <div>
             <EditEventPage
               event={this.props.location.state.event}
               currentUser={this.props.currentUser}
-              guests={this.props.location.state.event.users}
+              guests={this.props.guestsQuery.event.users}
               refresh={this.refresh}
               editingState={this.editingState}
               toggleEditState={this.toggleEditState}
@@ -118,7 +117,7 @@ console.log('before currently editing')
             <EventFocus
             event={this.props.location.state.event}
             currentUser={this.props.currentUser}
-            guests={this.props.location.state.event.users}
+            guests={this.props.guestsQuery.event.users}
             refresh={this.refresh}
             toggleEditState={this.toggleEditState}
             name={this.state.name}
@@ -138,7 +137,7 @@ console.log('before currently editing')
 
     if(this.props.checkEvent){
       if ((this.props.checkEvent.loading || this.props.checkEvent.error) && !this.props.checkEvent.user){
-       return
+       return(
         <div style={{"textAlign": "center", "marginTop": "225px"}}>
           <Loader
            type="Puff"
@@ -148,12 +147,10 @@ console.log('before currently editing')
            alignItems="center"
            justifyContent='center'
            />
-         </div>;
+         </div>
+         )
       }
     
-    
-      if (this.props.checkEvent.user){
-        console.log('this.props', this.props, 'this.satte', this.state)
         return this.state.currentlyEditing ?
         (
           <div>
@@ -190,11 +187,19 @@ console.log('before currently editing')
             />
           </div>
         );
-        return (<div>Thinking</div>)
       }
-      return (<div>Thinking</div>)
-    }
-    return (<div>THINKING</div>)
+    return (
+      <div style={{"textAlign": "center", "marginTop": "225px"}}>
+          <Loader
+           type="Puff"
+           color="#00BFFF"
+           height="300"
+           width="300"
+           alignItems="center"
+           justifyContent='center'
+           />
+         </div>
+        )
   }
 }
 

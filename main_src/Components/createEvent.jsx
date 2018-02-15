@@ -12,6 +12,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { withRouter } from 'react-router';
 import { addItems, addRecipients, addEvent } from '../mutations.js'
+import $ from 'jquery'
 
 const CLOUDINARY_UPLOAD_PRESET = 'gvmf858k';
 const CLOUDINARY_UPLOAD_URL =
@@ -110,6 +111,8 @@ class CreateEvent extends React.Component {
 
 
   submitForm() {
+ 
+
     const images = ['https://pmcvariety.files.wordpress.com/2016/06/the-women-of-hamilton-broadway.jpg?w=1000&h=562&crop=1',
     'https://www.pifemaster.com/wp-content/uploads/jeremy-100.jpg',
     'https://foodal.com/wp-content/uploads/2015/06/Best-Picnic-Basket-Reviews.jpg',
@@ -126,6 +129,7 @@ class CreateEvent extends React.Component {
 
       alert('All fields must be entered!')
     } else {
+       $('.spinner img').show();
     const { name, location, date, time, description, uploadedFileCloudinaryUrl, endTime, dateTimeStart, dateTimeEnd} = this.state;
 
     this.props
@@ -340,6 +344,7 @@ class CreateEvent extends React.Component {
             }}
             secondary={true}
           />
+          <span className="spinner"><img src="https://raw.githubusercontent.com/hackreactor/hrnyc12-chatterbox-client/solution/client/images/spiffygif_46x46.gif?token=ASoxz3WNkiFS4S1HtTwQxFkDo6k-3EXwks5aju-OwA%3D%3D"/></span>
       </div>
   </div>
 
