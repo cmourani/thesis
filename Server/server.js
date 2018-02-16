@@ -6,6 +6,7 @@ const path = require('path');
 const graphql = require('graphql');
 const knex = require('./dbConfig.js').knex;
 const axios = require('axios');
+require('dotenv').config();
 // const webpush = require('web-push');
 const db = require('./ControllersDB/mainController.js');
 
@@ -72,11 +73,10 @@ app.post('/contacts', function(req, res) {
       res.json(response.data.feed);
     })
     .catch(error => {
-      console.log(error)
-      return error
-    })
-})
-
+      console.log(error);
+      return error;
+    });
+});
 
 app.get('/user', function(req, res) {
   if (req.user === undefined) {
@@ -115,7 +115,6 @@ app.get('/user', function(req, res) {
 //   // }
 //   let userId = req.body.userId,
 //   subscription = JSON.stringify(req.body.subscription);
-
 
 //   db.user.editField(userId, 'subscription', subscription, function(err, results){
 //     if (err){
@@ -172,8 +171,6 @@ app.post('/', (req, res, next) => {
   });
 });
 
-app.listen(4000, () => {
+app.listen(process.env.PORT, () => {
   console.log('Listening on port 4000');
 });
-
-
