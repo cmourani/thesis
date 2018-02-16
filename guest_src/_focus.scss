@@ -77,6 +77,8 @@
   padding: 0 5%;
   text-align: center;
   line-height: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-column-start: 1;
   grid-column-end: 7;
   grid-row-start: 7;
@@ -123,12 +125,14 @@
   width: 100%;
   margin-top: 10px;
   height: 20%;
+  font-size: 20px;
 }
 
 .event-page-date {
   width: 45%;
   display: inline-block;
   font-size: 0.8rem;
+  font-size: 24px;
 }
 
 .event-page-time {
@@ -199,7 +203,6 @@
 }
 
 .event-page-registery-header {
-  height: 15%;
   line-height: 1.5rem;
   h1 {
     margin: 0 auto;
@@ -212,7 +215,7 @@
 
 .itemList {
   overflow-y: scroll;
-  max-height: 75%;
+  max-height: 85%;
   padding: 0 5%;
   margin: 5% 0;
 }
