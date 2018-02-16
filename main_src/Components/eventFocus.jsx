@@ -468,18 +468,7 @@ class EventFocus extends React.Component {
               <div className="event-page-registery-header">
                 <h2>Item Registery</h2>
                 <h3>Click on an item to claim it</h3>
-                <button
-                  onClick={() =>
-                    (window.location.href = 'https://www.amazon.com/')
-                  }
-                >
-                  Buy an item on Amazon!
-                </button>
-                <button
-                  onClick={() => (window.location.href = 'https://drizly.com/')}
-                >
-                  Buy some booze!
-                </button>
+     
               </div>
 
               <ItemList currentUser={this.props.currentUser} event={event} />

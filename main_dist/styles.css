@@ -84,8 +84,8 @@ h2 {
 }
 
 .col1 {
-  color: #c0b283;
-  /* background-color: #DCD0C0; */
+  color: #EAEAEA;
+  background-color: #bf8065;
   position: relative;
   width: 80%;
   text-align: center;
@@ -94,8 +94,8 @@ h2 {
 }
 
 .col2 {
-  color: #c0b283;
-  /* background-color: #DCD0C0; */
+  color: #EAEAEA;
+  background-color: #bf8065;
   position: relative;
   width: 80%;
   float: right;
@@ -105,8 +105,8 @@ h2 {
 }
 
 .col3 {
-  color: #c0b283;
-  /* background-color: #DCD0C0; */
+  color: #EAEAEA;
+  background-color: #bf8065;
   width: 80%;
   position: relative;
   text-align: center;

@@ -33,7 +33,7 @@
   h1 {
     font-weight: bold;
     text-transform: uppercase;
-    color: #a7b3a5;
+    color: #768174;
     text-align: center;
     margin-top: 0px;
   }
@@ -77,11 +77,12 @@
   padding: 0 5%;
   text-align: center;
   line-height: 2em;
+  display: grid;
   grid-column-start: 1;
   grid-column-end: 8;
   grid-row-start: 7;
   grid-row-end: 12;
-  background-color: $color-secondary-dark;
+  background-color: #768174;
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
 
   button {
@@ -106,45 +107,55 @@
 }
 
 .event-page-description {
-  padding-top: 5%;
-  height: 30%;
+  padding-top: 3%;
   box-sizing: border-box;
   color: beige;
+  font-size: 18px;
+  line-height: 22px;
+  align-self: center;
+  font-family: 'Raleway';
+  grid-row: 1/5;
+  grid-column: 1/2;
 }
 
-.border1 {
-  border-bottom: 1px solid black;
-  margin-bottom: 2px;
-}
-.border2 {
-  border-bottom: 2px solid black;
-  margin-bottom: 10px;
-}
+// .border1 {
+//   border-bottom: 1px solid black;
+//   margin-bottom: 8px;
+//   grid-row: 4/5;
+// }
+// .border2 {
+//   border-bottom: 2px solid black;
+//   margin-bottom: 8px;
+// }
 
 .event-page-date-time {
   width: 100%;
   margin-top: 10px;
   height: 20%;
+  margin-top: 45px;
 }
 
 .event-page-date {
   width: 45%;
   display: inline-block;
   color: beige;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-family: 'Raleway';
 }
 
 .event-page-time {
   width: 45%;
   display: inline-block;
   color: beige;
-  font-size: 2em;
+  font-size:1.5em;
+  font-family: 'Raleway';
 }
 
 .event-page-location {
   height: 20%;
   color: beige;
-  font-size: 2em;
+  font-size: 1.5em;
+  font-family: 'Raleway';
 }
 
 .event-page-sidebar {
@@ -181,10 +192,12 @@
   margin-left: 2.5%;
   margin-right: 2.5%;
   display: inline-block;
-  background-color: #eae3ea;
+  background-color: #b56357;
+  color: beige;
   border-radius: 0 0 10px 10px;
   text-align: center;
-  padding-top: 12.5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
@@ -207,7 +220,6 @@
 }
 
 .event-page-registery-header {
-  height: 15%;
   line-height: 1.5rem;
   font-family: 'Raleway';
 
