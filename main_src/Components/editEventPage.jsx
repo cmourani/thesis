@@ -19,7 +19,8 @@ class EditEventPage extends React.Component {
       time: this.props.event.time,
       description: this.props.event.description,
       img: this.props.event.img,
-      showItems: false
+      showItems: false, 
+      strDate: "Edit your date and time"
     };
     this.submitChanges = this.submitChanges.bind(this);
     this.showItemList = this.showItemList.bind(this);
@@ -113,7 +114,7 @@ class EditEventPage extends React.Component {
                     TimePicker={TimePickerDialog}
                     // value={this.state.date}
                     // type="date"
-                    placeholder="Edit your date and time"
+                    placeholder={this.state.strDate}
                     onChange={time => {
                       let year = time.getFullYear();
                       let month =
@@ -130,10 +131,16 @@ class EditEventPage extends React.Component {
                       let minutes = time.getMinutes();
                       let clockTime = hour + ':' + minutes;
 
+                      let strDate = 
+                      `${months[date.slice(4, 6)]} ${
+                        days[date.slice(6)]
+                      }, ${date.slice(0, 4)}`
+
                       this.setState({ date: Number(date) });
                       this.setState({
                         time: clockTime,
-                        dateTimeStart: time.toISOString()
+                        dateTimeStart: time.toISOString(), 
+                        strDate
                       });
                     }}
                   />
