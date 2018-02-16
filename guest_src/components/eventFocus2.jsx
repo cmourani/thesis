@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemList from './itemList';
+// import ItemList from './itemList';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { graphql, compose } from 'react-apollo';
@@ -10,9 +10,9 @@ import PlacesAutocomplete, {
   getLatLng
 } from 'react-places-autocomplete';
 import Map from './map.jsx';
-import Chat from './chat';
+// import Chat from './chat';
 import { confirmPresence, denyPresence, addToCalendar } from '../mutations.js';
-import { days, months } from './days-months.js';
+// import { days, months } from './days-months.js';
 
 ///List Material UI////
 import { List, ListItem } from 'material-ui/List';
@@ -398,7 +398,7 @@ class EventFocus extends React.Component {
                   )}
                 </div> */}
                 <div className="event-page-info-buttons-unit">
-                  <div onClick={this.addToCalendar}>{calendarSVG}</div>
+                  {/* <div onClick={this.addToCalendar}>{calendarSVG}</div> */}
                   <div className="event-page-info-buttons-text">
                     Add To Google Calendar
                   </div>
@@ -410,10 +410,10 @@ class EventFocus extends React.Component {
 
           <div className="event-page-sidebar">
             <div className="event-page-sidebar-buttons">
-              <div style={{cursor: "pointer"}} onClick={this.toggleItemsView} className="tab">
+              <div onClick={this.toggleItemsView} className="tab">
                 Item Registery
               </div>
-              <div style={{cursor: "pointer"}} onClick={this.toggleAttendingView} className="tab">
+              <div onClick={this.toggleAttendingView} className="tab">
                 Attending
               </div>
             </div>
@@ -514,7 +514,7 @@ class EventFocus extends React.Component {
 const EventFocusWithData = compose(
   graphql(confirmPresence, { name: 'confirmPresence' }),
   graphql(denyPresence, { name: 'denyPresence' }),
-  graphql(addToCalendar, { name: 'addToCalendar' }),
+  // graphql(addToCalendar, { name: 'addToCalendar' }),
   GoogleApiWrapper({
     apiKey: 'AIzaSyCcyYySdneaabfsmmARXqAfGzpn9DCZ3dg',
     apiKey: 'AIzaSyCDVd2ErtvbrNJht5TENmZ54E9mMECUviA'
