@@ -52,12 +52,12 @@ class ItemComments extends React.Component {
     const actions = [
       <FlatButton
         label="Submit"
-        primary={true}
+        secondary={true}
         onClick={this.onButtonClick}
       />,
       <FlatButton
         label="Close"
-        primary={true}
+        secondary={true}
         keyboardFocused={true}
         onClick={this.handleClose}
       />,
@@ -78,7 +78,7 @@ class ItemComments extends React.Component {
       return (
         <div>
           <Dialog
-          title="comments"
+          title="COMMENTS"
           actions={actions}
           modal={false}
           open={this.state.open}
@@ -97,7 +97,7 @@ class ItemComments extends React.Component {
         })}
         </Dialog>
         <div className="raised-button">
-          <RaisedButton onClick={this.handleOpen} primary={true} className="raised-button"> See Comments </RaisedButton>
+          <RaisedButton onClick={this.handleOpen} primary={true} label="SEE COMMENTS" className="raised-button" /> 
         </div>
         </div>
       );

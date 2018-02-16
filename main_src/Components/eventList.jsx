@@ -81,7 +81,7 @@ class EventList extends React.Component {
             handleEventClick={this.props.handleEventClick}
             className="event-list-first"
           />
-          <Event event={this.props.events[this.state.currentPic + 1]}  handleEventClick={this.props.handleEventClick} className="event-list-second" />
+         <Event event={this.props.events[this.state.currentPic + 1]}  handleEventClick={this.props.handleEventClick} className="event-list-second" />
           {this.props.events[this.state.currentPic + 2] ? (<Event event={this.props.events[this.state.currentPic + 2]} handleEventClick={this.props.handleEventClick} className="event-list-third"/>) : (<Event event={null} />)}
 
           <div
