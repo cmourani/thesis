@@ -60,6 +60,7 @@ const EventType = new GraphQLObjectType({
       type: new GraphQLList(ItemType),
       async resolve(parentValue, args) {
         let wait = new Promise((resolve, reject) => {
+          console.log('resolving items', parentValue)
           db.item.getItemsByEventId(parentValue.id, function(err, res){
             if (err){
              reject(err)
@@ -67,7 +68,9 @@ const EventType = new GraphQLObjectType({
              resolve(res)
            })
        })
-       return await wait
+        let result = await wait 
+       console.log( result)
+       return result
       }
     }
   })

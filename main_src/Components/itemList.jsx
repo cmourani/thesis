@@ -17,9 +17,11 @@ class ItemList extends React.Component {
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.refreshItemList = this.refreshItemList.bind(this);
   }
 
   refreshItemList() {
+    console.log('are we in refresh?')
     this.props.itemsQuery.refetch();
   }
 

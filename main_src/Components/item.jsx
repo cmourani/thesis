@@ -102,17 +102,16 @@ class Item extends React.Component {
           <div className="item-claim-claimant">
             {this.props.currentUser.name}
           </div>
-          <div
+          <a
           className="item-claim-shop-svg"
-            onClick={() => {
-              window.location.href = `https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=${
-                this.props.name
-              }`;
-            }}
+            href={`https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=
+              ${this.props.name}`}
+            target="_blank"
+            style={{'textDecoration' :'none', 'color': 'inherit'}}
           >
             <span>{shopSVG}</span>
             <span>Buy on Amazon</span>
-          </div>
+          </a>
         </div>
           ) : (
      

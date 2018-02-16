@@ -88,6 +88,7 @@ const RootQueryType = new GraphQLObjectType({
       type: ItemType,
       args: { id: { type: GraphQLInt } },
       async resolve(parentValue, args) {
+        console.log('are we refetching?')
         let wait = new Promise((resolve, reject) => {
           db.item.getItem(args.id, function(err, res){
             if (err){

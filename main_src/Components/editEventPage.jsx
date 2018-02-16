@@ -129,6 +129,7 @@ class EditEventPage extends React.Component {
 
                       let hour = time.getHours();
                       let minutes = time.getMinutes();
+                      minutes = minutes.toString().length === 1 ? '0' + minutes : minutes
                       let clockTime = hour + ':' + minutes;
 
                       let strDate = 

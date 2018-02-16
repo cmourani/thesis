@@ -134,8 +134,15 @@ class EventFocus extends React.Component {
     this.addressToLatLong();
   }
 
+  componentDidMount(){
+    if (google){
+      this.addressToLatLong()
+    }
+  }
+
   addressToLatLong() {
     //this should be in componentDidMount
+
     geocodeByAddress(this.props.event.location)
       .then(results => getLatLng(results[0]))
       .then(latLng => {

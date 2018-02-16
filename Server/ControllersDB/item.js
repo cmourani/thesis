@@ -55,8 +55,8 @@ itemController = {
       if (err){
         cb(err, null)
       } else {
-        console.log('23334455566', results)
-         if (user_id == JSON.parse(JSON.stringify(results))[0].user_id){
+         if (JSON.parse(JSON.stringify(results))[0].user_id !== null){
+          console.log('23334455566', results)
            conn.query(`update item set user_id = NULL where id = ${id}`, function(err1, results1){
              if (err1){
                cb(err1, null)
@@ -70,8 +70,7 @@ itemController = {
                })
              }
            })
-         }
-         if (null == JSON.parse(JSON.stringify(results))[0].user_id){
+         } else if (null === JSON.parse(JSON.stringify(results))[0].user_id){
            console.log('2222222', results)
             conn.query(`update item set user_id = ${user_id} where id = ${id}`, function(error, res){
              if (error){

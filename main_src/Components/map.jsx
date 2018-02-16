@@ -46,6 +46,15 @@ class Map extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.props.google && !this.state.toggleMap) {
+          console.log('this.props map4', this.props)
+      this.loadMap();
+      this.plotCurrentLocation();
+      this.showDirections();
+    }
+  }
+
+  componentDidMount(){
+    if (this.props.props.google && !this.state.toggleMap) {
       this.loadMap();
       this.plotCurrentLocation();
       this.showDirections();
@@ -74,6 +83,7 @@ class Map extends React.Component {
   }
 
   loadMap() {
+    console.log('load map props', this.props)
     if (this.props.props && this.props.props.google && !this.state.toggleMap) {
       const { google } = this.props.props;
       const maps = google.maps;
@@ -179,18 +189,18 @@ class Map extends React.Component {
       this.map = new maps.Map(node, mapConfig);
       const service = new google.maps.places.PlacesService(this.map);
 
-      let markerA = new google.maps.Marker({
-        position: this.props.latLng,
-        title: 'point A',
-        label: 'A',
-        map: this.map
-      });
-      let markerB = new google.maps.Marker({
-        position: this.state.currLocation,
-        title: 'point B',
-        label: 'B',
-        map: this.map
-      });
+      // let markerA = new google.maps.Marker({
+      //   position: this.props.latLng,
+      //   title: 'point A',
+      //   label: 'A',
+      //   map: this.map
+      // });
+      // let markerB = new google.maps.Marker({
+      //   position: this.state.currLocation,
+      //   title: 'point B',
+      //   label: 'B',
+      //   map: this.map
+      // });
     }
   }
 
