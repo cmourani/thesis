@@ -45,21 +45,28 @@ class Map extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.props.google && !this.state.toggleMap) {
-          console.log('this.props map4', this.props)
-      this.loadMap();
-      this.plotCurrentLocation();
-      this.showDirections();
-    }
+    this.loadMap()
+    this.plotCurrentLocation()
+    this.showDirections()
   }
 
-  componentDidMount(){
-    if (this.props.props.google && !this.state.toggleMap) {
-      this.loadMap();
-      this.plotCurrentLocation();
-      this.showDirections();
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (!Array.isArray(nextProps.latLng) && !this.state.toggleMap) {
+  //         console.log('this.props map4', nextProps.latLng)
+  //     this.loadMap();
+  //     this.plotCurrentLocation();
+  //     this.showDirections();
+  //   }
+  // }
+
+  // componentDidMount(){
+  //   console.log('what')
+  //   if (this.props.props.google && !this.state.toggleMap) {
+  //     this.loadMap();
+  //     this.plotCurrentLocation();
+  //     this.showDirections();
+  //   }
+  // }
 
   plotCurrentLocation(map) {
     let getPosition = function(options) {
@@ -189,18 +196,18 @@ class Map extends React.Component {
       this.map = new maps.Map(node, mapConfig);
       const service = new google.maps.places.PlacesService(this.map);
 
-      // let markerA = new google.maps.Marker({
-      //   position: this.props.latLng,
-      //   title: 'point A',
-      //   label: 'A',
-      //   map: this.map
-      // });
-      // let markerB = new google.maps.Marker({
-      //   position: this.state.currLocation,
-      //   title: 'point B',
-      //   label: 'B',
-      //   map: this.map
-      // });
+      let markerA = new google.maps.Marker({
+        position: this.props.latLng,
+        title: 'point A',
+        label: 'A',
+        map: this.map
+      });
+      let markerB = new google.maps.Marker({
+        position: this.state.currLocation,
+        title: 'point B',
+        label: 'B',
+        map: this.map
+      });
     }
   }
 

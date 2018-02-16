@@ -130,14 +130,8 @@ class EventFocus extends React.Component {
       });
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps() { 
     this.addressToLatLong();
-  }
-
-  componentDidMount(){
-    if (google){
-      this.addressToLatLong()
-    }
   }
 
   addressToLatLong() {
@@ -213,7 +207,9 @@ class EventFocus extends React.Component {
       color: 'white',
       fontSize: '40%'
     };
+    if (google){
 
+    }
     let event = this.props.event;
     let checkIfHostOfEvent =
       this.props.currentUser.id === this.props.event.host_id;

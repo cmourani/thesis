@@ -20,11 +20,15 @@ itemController = {
     })
   },
   addMultiple: function(body, cb) {
-    let string = `("${body.name[0]}", ${body.event_id})`
-    for (let i = 1; i < body.name.length; i++) {
-        string += `, ("${body.name[i]}", ${body.event_id})`
-    }
-  
+    let string = ''
+    if (body.name.length){
+      string = `("${body.name[0]}", ${body.event_id})`
+      for (let i = 1; i < body.name.length; i++) {
+          string += `, ("${body.name[i]}", ${body.event_id})`
+      }
+    } 
+    string.length ? 
+   
     conn.query(`insert into item (name, event_id) values ${string}`, function(err, results){
       if (err){
         cb(err, null)
@@ -38,7 +42,16 @@ itemController = {
           }
         })
       }
-    })
+    }) :
+
+    conn.query(`select * from item where event_id = ${body.event_id}`, function(error, res){
+          if (error){
+            cb(error, null)
+          } else {
+            console.log('results items2', res)
+            cb(null, JSON.parse(JSON.stringify(res)))
+          }
+        })
   
   },
   getItem: function(id, cb) {

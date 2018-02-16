@@ -161,6 +161,7 @@ class CreateEvent extends React.Component {
           }
         })
         .then(event => {
+          console.log('add items', this.state.items, event.data.addEvent.id)
           this.props
             .addItems({
               variables: {
@@ -330,9 +331,11 @@ class CreateEvent extends React.Component {
                   : time.getDate();
               let date = '' + year + month + day;
 
+
               let hour = time.getHours();
               let minutes = time.getMinutes();
               let clockTime = hour + ':' + minutes;
+              minutes = minutes.toString().length === 1 ? '0' + minutes : minutes
 
     
               let strDate = `${months[date.slice(4, 6)]} ${
@@ -399,7 +402,7 @@ class CreateEvent extends React.Component {
             }}
             secondary={true}
           />
-          <span class="spinner">
+          <span className="spinner">
             <img src="https://raw.githubusercontent.com/hackreactor/hrnyc12-chatterbox-client/solution/client/images/spiffygif_46x46.gif?token=ASoxz0P442N1Nt4XDN_nsGMcMa5Re1q1ks5ajzrqwA%3D%3D" />
           </span>
         </span>

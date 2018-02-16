@@ -183,6 +183,7 @@ const mutations = new GraphQLObjectType({
         event_id: { type: new GraphQLNonNull(GraphQLInt) }
       },
        async resolve(parentValue, args) {
+        console.log('in add items mutation', args.itemNames)
         let wait = new Promise((resolve, reject) => {
           db.item.addMultiple({name: args.itemNames, event_id: args.event_id}, function(err, res){
             if (err){
