@@ -41,7 +41,6 @@ eventController = {
   },
 
   getCurrentEvents: function(user_id, cb) {
-    console.log('what is the user_id ', user_id)
     let current = createDateNum()
     conn.query(`select * from event_attendee
       inner join event ON
@@ -125,8 +124,13 @@ eventController = {
       if (err){
         cb(err, null)
       } else {
-        console.log('results afterupdate event fieldss', results)
-        cb(null, JSON.parse(JSON.stringify(results))[0])
+        conn.query(`select * from event where id = ${id}`, function(error, res){
+          if (err){
+            cb(err, null)
+          } else {
+          cb(null, JSON.parse(JSON.stringify(res))[0])
+          }
+        })
       }
     })
   }

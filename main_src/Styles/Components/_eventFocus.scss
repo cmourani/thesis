@@ -24,7 +24,7 @@
 
 .event-page-image-container {
   grid-column-start: 1;
-  grid-column-end: 7;
+  grid-column-end: 8;
   grid-row-start: 1;
   grid-row-end: 7;
   height: 100%;
@@ -78,7 +78,7 @@
   text-align: center;
   line-height: 2em;
   grid-column-start: 1;
-  grid-column-end: 7;
+  grid-column-end: 8;
   grid-row-start: 7;
   grid-row-end: 12;
   background-color: $color-secondary-dark;
@@ -148,12 +148,13 @@
 }
 
 .event-page-sidebar {
-  grid-column-start: 7;
+  grid-column-start: 8;
   grid-column-end: 13;
   grid-row-start: 1;
   grid-row-end: 12;
-  background-color: #b56357;
+  background-color: rgba(245, 241, 236, 0.952);
   border-radius: 3px;
+  border: solid #a7b3a5 4px;
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
   text-align: center;
   display: grid;
@@ -208,8 +209,13 @@
 .event-page-registery-header {
   height: 15%;
   line-height: 1.5rem;
-  h1 {
+  font-family: 'Raleway';
+
+  h2 {
     margin: 0 auto;
+    text-transform: uppercase;
+    color: #b56357
+
   }
 
   h3 {
