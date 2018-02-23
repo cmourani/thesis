@@ -7,16 +7,16 @@ const conn = mysql.createConnection({
   database: 'thesis'
 });
 
-const knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host: 'thesis.ciqkxj8b112q.us-east-2.rds.amazonaws.com',
-    port: '3307',
-    user: 'thesis',
-    password: 'thesis12345',
-    database: 'thesis'
-  }
-});
+// const knex = require('knex')({
+//   client: 'mysql',
+//   connection: {
+//     host: 'thesis.ciqkxj8b112q.us-east-2.rds.amazonaws.com',
+//     port: '3307',
+//     user: 'thesis',
+//     password: 'thesis12345',
+//     database: 'thesis'
+//   }
+// });
 
 knex.schema
   .hasTable('user')

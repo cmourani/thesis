@@ -13,7 +13,7 @@ const tabStyle = {
 
 class Header extends Component {
   titleClick() {
-    window.location.href = ('http://localhost:4000/dashboard')
+    window.location.href = ('http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com/dashboard')
   }
   render() {
     return (

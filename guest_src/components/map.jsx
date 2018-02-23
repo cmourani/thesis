@@ -45,11 +45,9 @@ class Map extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.props.google && !this.state.toggleMap) {
-      this.loadMap();
-      this.plotCurrentLocation();
-      this.showDirections();
-    }
+    this.loadMap();
+    this.plotCurrentLocation();
+    this.showDirections();
   }
 
   plotCurrentLocation(map) {

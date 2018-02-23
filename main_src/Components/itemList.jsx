@@ -5,7 +5,7 @@ import ItemWithData from './item.jsx';
 import Chip from 'material-ui/Chip';
 import { ITEMS_QUERY } from '../queries.js';
 import { addItems, deleteItem } from '../mutations';
-import TextField from 'material-ui/TextField'
+import TextField from 'material-ui/TextField';
 
 class ItemList extends React.Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class ItemList extends React.Component {
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.refreshItemList = this.refreshItemList.bind(this);
   }
 
   refreshItemList() {
@@ -66,32 +67,37 @@ class ItemList extends React.Component {
   render() {
     if (this.props.itemsQuery.error && !this.props.itemsQuery.event) {
       this.props.itemsQuery.refetch();
-      return
-        <div style={{"textAlign": "center", "marginTop": "225px"}}>
-          <Loader
-           type="Puff"
-           color="#00BFFF"
-           height="300"
-           width="300"
-           alignItems="center"
-           justifyContent='center'
-           />
-         </div>;
+      return;
+      <div style={{ textAlign: 'center', marginTop: '225px' }}>
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height="300"
+          width="300"
+          alignItems="center"
+          justifyContent="center"
+        />
+      </div>;
     }
 
     if (this.props.itemsQuery.loading) {
       return <div>loading...</div>;
     }
 
-    const deleteIcon = <svg xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24">
-      <path d="M24 3.752l-4.423-3.752-7.771 9.039-7.647-9.008-4.159 4.278c2.285 2.885 5.284 5.903 8.362 8.708l-8.165 9.447 1.343 1.487c1.978-1.335 5.981-4.373 10.205-7.958 4.304 3.67 8.306 6.663 10.229 8.006l1.449-1.278-8.254-9.724c3.287-2.973 6.584-6.354 8.831-9.245z"/></svg>
+    const deleteIcon = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M24 3.752l-4.423-3.752-7.771 9.039-7.647-9.008-4.159 4.278c2.285 2.885 5.284 5.903 8.362 8.708l-8.165 9.447 1.343 1.487c1.978-1.335 5.981-4.373 10.205-7.958 4.304 3.67 8.306 6.663 10.229 8.006l1.449-1.278-8.254-9.724c3.287-2.973 6.584-6.354 8.831-9.245z" />
+      </svg>
+    );
 
     return this.props.currentlyEditing ? (
       <div className="item-list-two">
-      <h1> Add/delete items from your registry</h1>
+        <h1> Add/delete items from your registry</h1>
         <ul>
           <li>
             <TextField
@@ -103,11 +109,15 @@ class ItemList extends React.Component {
             />
           </li>
           <div className="item-list-list">
-          {this.props.itemsQuery.event.items.map(item => (
-            <Chip key={item.id} className="item-list-item" onRequestDelete={e => this.deleteItem(item.id, e)}>
-              <span>{item.name}</span>
+            {this.props.itemsQuery.event.items.map(item => (
+              <Chip
+                key={item.id}
+                className="item-list-item"
+                onRequestDelete={e => this.deleteItem(item.id, e)}
+              >
+                <span>{item.name}</span>
               </Chip>
-          ))}
+            ))}
           </div>
         </ul>
       </div>
