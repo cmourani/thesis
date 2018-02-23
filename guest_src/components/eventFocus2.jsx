@@ -411,7 +411,7 @@ class EventFocus extends React.Component {
           <div className="event-page-sidebar">
             <div className="event-page-sidebar-buttons">
               <div onClick={this.toggleItemsView} className="tab">
-                Item Registery
+                Item Registry
               </div>
               <div onClick={this.toggleAttendingView} className="tab">
                 Attending
@@ -466,7 +466,7 @@ class EventFocus extends React.Component {
               }
             >
               <div className="event-page-registery-header">
-                <h2>Item Registery</h2>
+                <h2>Item Registry</h2>
                 <h3>Click on an item to claim it</h3>
                 <button
                   onClick={() =>

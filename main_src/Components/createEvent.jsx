@@ -14,7 +14,7 @@ import request from 'superagent';
 import { withRouter } from 'react-router';
 import $ from 'jquery';
 import { addItems, addRecipients, addEvent } from '../mutations.js';
-import { months, days } from './days-months.js'
+import { months, days } from './days-months.js';
 
 const CLOUDINARY_UPLOAD_PRESET = 'gvmf858k';
 const CLOUDINARY_UPLOAD_URL =
@@ -51,8 +51,8 @@ class CreateEvent extends React.Component {
       uploadedFileCloudinaryUrl: '',
       endTime: '',
       dateTimeStart: '',
-      dateTimeEnd: '', 
-      strDate: "Pick a day and time"
+      dateTimeEnd: '',
+      strDate: 'Pick a day and time'
     };
 
     this.handleItems = this.handleItems.bind(this);
@@ -332,17 +332,18 @@ class CreateEvent extends React.Component {
 
               let hour = time.getHours();
               let minutes = time.getMinutes();
+              minutes =
+                minutes.toString().length === 1 ? '0' + minutes : minutes;
               let clockTime = hour + ':' + minutes;
 
-    
               let strDate = `${months[date.slice(4, 6)]} ${
                 days[date.slice(6)]
-              }, ${date.slice(0, 4)}`
+              }, ${date.slice(0, 4)}`;
 
               this.setState({ date: Number(date) });
               this.setState({
                 time: clockTime,
-                dateTimeStart: time.toISOString(), 
+                dateTimeStart: time.toISOString(),
                 strDate: strDate + ' ' + clockTime
               });
             }}
@@ -399,7 +400,7 @@ class CreateEvent extends React.Component {
             }}
             secondary={true}
           />
-          <span class="spinner">
+          <span className="spinner">
             <img src="https://raw.githubusercontent.com/hackreactor/hrnyc12-chatterbox-client/solution/client/images/spiffygif_46x46.gif?token=ASoxz0P442N1Nt4XDN_nsGMcMa5Re1q1ks5ajzrqwA%3D%3D" />
           </span>
         </span>

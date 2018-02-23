@@ -410,10 +410,18 @@ class EventFocus extends React.Component {
 
           <div className="event-page-sidebar">
             <div className="event-page-sidebar-buttons">
-              <div style={{cursor: "pointer"}} onClick={this.toggleItemsView} className="tab">
-                Item Registery
+              <div
+                style={{ cursor: 'pointer' }}
+                onClick={this.toggleItemsView}
+                className="tab"
+              >
+                Item Registry
               </div>
-              <div style={{cursor: "pointer"}} onClick={this.toggleAttendingView} className="tab">
+              <div
+                style={{ cursor: 'pointer' }}
+                onClick={this.toggleAttendingView}
+                className="tab"
+              >
                 Attending
               </div>
             </div>
@@ -466,9 +474,8 @@ class EventFocus extends React.Component {
               }
             >
               <div className="event-page-registery-header">
-                <h2>Item Registery</h2>
+                <h2>Item Registry</h2>
                 <h3>Click on an item to claim it</h3>
-     
               </div>
 
               <ItemList currentUser={this.props.currentUser} event={event} />
