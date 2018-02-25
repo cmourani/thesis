@@ -171,6 +171,6 @@ app.post('/', (req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log('Listening on port 4000');
 });
