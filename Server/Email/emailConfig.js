@@ -58,8 +58,8 @@ const transporter = nodemailer.createTransport({
   secure: false, // true for 465, false for other ports
   auth: {
     type: 'OAuth2',
-    clientId: ID,
-    clientSecret: secret
+    clientId: process.env.ID,
+    clientSecret: process.env.secret
   }
 });
 
