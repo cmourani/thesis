@@ -2,8 +2,8 @@ var google = require('googleapis');
 var { OAuth2Client } = require('google-auth-library');
 var OAuth2 = google.auth.OAuth2;
 var calendar = google.calendar('v3');
-var clientId = process.env.id;
-var clientSecret = process.env.secret;
+var clientId = ID
+var clientSecret = secret;
 const db = require('../ControllersDB/mainController.js');
 
 async function addToCal(event, user_id, host) {
@@ -41,7 +41,7 @@ async function addToCal(event, user_id, host) {
     });
     hashed
       .then(hash => {
-        url = `http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com:4000/eventPage/${hash}`;
+        url = `http://host-ly.herokuapp.com/eventPage/${hash}`;
         var event = {
           summary: name,
           location: location,
@@ -85,7 +85,7 @@ async function addToCal(event, user_id, host) {
       })
       .catch(err => {
         if (err.length === 40) {
-          url = `http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com:4000/eventPage/${err}`;
+          url = `http://host-ly.herokuapp.com/eventPage/${err}`;
 
           var event = {
             summary: name,
@@ -130,7 +130,7 @@ async function addToCal(event, user_id, host) {
         }
       });
   } else {
-    url = `http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com:4000/`;
+    url = `http://host-ly.herokuapp.com/`;
 
     var event = {
       summary: name,

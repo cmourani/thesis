@@ -10,7 +10,7 @@ import App2 from './components/app2.jsx';
 import { BrowserRouter } from 'react-router-dom';
 
 const httpLink = new HttpLink({
-  uri: 'http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com:4000/graphql'
+  uri: 'http://host-ly.herokuapp.com/graphql'
 });
 
 const client = new ApolloClient({

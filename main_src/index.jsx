@@ -9,7 +9,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const httpLink = new HttpLink({
-  uri: 'http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com:4000/graphql'
+  uri: 'http://host-ly.herokuapp.com/graphql'
 });
 
 const client = new ApolloClient({

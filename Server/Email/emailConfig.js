@@ -58,8 +58,8 @@ const transporter = nodemailer.createTransport({
   secure: false, // true for 465, false for other ports
   auth: {
     type: 'OAuth2',
-    clientId: process.env.id,
-    clientSecret: process.env.secret
+    clientId: ID,
+    clientSecret: secret
   }
 });
 
@@ -75,7 +75,7 @@ const sendMessage = function(recipients, account, event_id, cb) {
       subject: `${account.name} just invited you to their event!`,
       html: `<span>Hey ${
         guest[0]
-      }, click <a href="http://ec2-18-219-85-110.us-east-2.compute.amazonaws.com:4000/eventPage/${id}">here</a> to check out the event page!</span>`,
+      }, click <a href="http://host-ly.herokuapp.com/eventPage/${id}">here</a> to check out the event page!</span>`,
       auth: {
         user: account.email,
         accessToken: account.accessToken

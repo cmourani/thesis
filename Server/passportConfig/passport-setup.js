@@ -18,8 +18,8 @@ passport.use(
   new GoogleStrategy(
     {
       callbackURL: '/auth/google/redirect',
-      clientID: process.env.id,
-      clientSecret: process.env.secret
+      clientID: ID,
+      clientSecret: secret
     },
     (accessToken, refreshToken, profile, done) => {
       console.log('profile', profile)
