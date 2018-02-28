@@ -2,8 +2,8 @@ var google = require('googleapis');
 var { OAuth2Client } = require('google-auth-library');
 var OAuth2 = google.auth.OAuth2;
 var calendar = google.calendar('v3');
-var clientId = ID
-var clientSecret = secret;
+var clientId = process.env.ID
+var clientSecret = process.env.secret;
 const db = require('../ControllersDB/mainController.js');
 
 async function addToCal(event, user_id, host) {
