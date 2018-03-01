@@ -73,10 +73,11 @@ app.post('/contacts', function(req, res) {
       }&alt=json&max-results=500&v=3.0`
     )
     .then(response => {
+      console.log('not error', response)
       res.json(response.data.feed);
     })
     .catch(error => {
-      console.log(error);
+      console.log('error', error);
       return error;
     });
 });
