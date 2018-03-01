@@ -1,20 +1,20 @@
 const mysql = require('mysql');
 const conn = mysql.createConnection({
-  host: 'thesis.ciqkxj8b112q.us-east-2.rds.amazonaws.com',
-  user: 'thesis',
-  port: '3307',
-  password: 'thesis12345',
-  database: 'thesis'
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
 });
 
 const knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: 'thesis.ciqkxj8b112q.us-east-2.rds.amazonaws.com',
-    port: '3307',
-    user: 'thesis',
-    password: 'thesis12345',
-    database: 'thesis'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
   }
 });
 
