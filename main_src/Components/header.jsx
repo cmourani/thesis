@@ -13,7 +13,7 @@ const tabStyle = {
 
 class Header extends Component {
   titleClick() {
-    window.location.href = ('http://host-ly.herokuapp.com//dashboard')
+    window.location.href = ('http://host-ly.herokuapp.com/dashboard')
   }
   render() {
     return (
