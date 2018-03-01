@@ -60,6 +60,9 @@ app.use(
   express.static(path.join(__dirname, '../guest_dist'))
 );
 
+app.use('/google055bb356202fa8b1.html', 
+  express.static(path.join(__dirname, '../google_dist'))
+);
 //contacts///
 
 app.post('/contacts', function(req, res) {
@@ -170,6 +173,8 @@ app.post('/', (req, res, next) => {
     res.send(result);
   });
 });
+
+
 
 app.listen(process.env.PORT || 4000, () => {
   console.log('Listening on port' + 4000);
