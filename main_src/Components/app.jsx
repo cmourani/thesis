@@ -49,29 +49,32 @@ class App extends React.Component {
     axios
       .get('/user')
       .then(data => {
-        axios
-          .post('/contacts', {'accessToken': data.data.user.accessToken})
-          // .then((result) => {
-          //   console.log('results', result)
-          //   let contacts = result.data.entry.map(contact => {
-          //     if (contact.gd$name && contact.gd$email) {
-          //       return contact.gd$name.gd$fullName.$t
-          //     }
-          //   }).filter(entry => entry)
+           this.setState({
+              currentUser: data.data.user
+            })
+        // axios
+        //   .post('/contacts', {'accessToken': data.data.user.accessToken})
+        //   .then((result) => {
+        //     console.log('results', result)
+        //     let contacts = result.data.entry.map(contact => {
+        //       if (contact.gd$name && contact.gd$email) {
+        //         return contact.gd$name.gd$fullName.$t
+        //       }
+        //     }).filter(entry => entry)
 
-          //   let emails = result.data.entry.map(email => {
-          //     if (email.gd$name && email.gd$email) {
-          //       return email.gd$email[0].address
-          //     }
-          //   }).filter(entry => entry)
+        //     let emails = result.data.entry.map(email => {
+        //       if (email.gd$name && email.gd$email) {
+        //         return email.gd$email[0].address
+        //       }
+        //     }).filter(entry => entry)
 
-          //   this.setState({
-          //     currentUser: data.data.user,
-          //     contacts,
-          //     emails
-          //   });
-          // })
-          // .catch(error =>  error)
+        //     this.setState({
+        //       currentUser: data.data.user,
+        //       contacts,
+        //       emails
+        //     });
+        //   })
+        //   .catch(error =>  error)
       })
       .catch(err => err)
   }
