@@ -82,6 +82,7 @@ app.post('/contacts', function(req, res) {
 });
 
 app.get('/user', function(req, res) {
+  console.log('req.user', req.user)
   if (req.user === undefined) {
     // The user is not logged in
     res.json({});
